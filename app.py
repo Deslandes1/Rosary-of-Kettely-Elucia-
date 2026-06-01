@@ -87,6 +87,16 @@ st.markdown("""
         50% { transform: scale(1.2); opacity: 1; }
         100% { transform: scale(1); opacity: 0.6; }
     }
+    
+    /* New Avatar Styling */
+    .avatar-img {
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border: 2px solid #ffaa44;
+        box-shadow: 0 0 20px rgba(255,170,68,0.6);
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -163,11 +173,20 @@ with st.sidebar:
     st.markdown("---")
     st.caption("© 2025 GlobalInternet.py")
 
-# ================== Main Interface ==================
+# ================== Main Interface with Avatar and Credit ==================
 st.markdown('<div class="energy-orb"></div>', unsafe_allow_html=True)
-st.title("✨ The Canonization Rosary Book ✨")
-st.markdown("### *Elucia Antoine & Kettely Auguste*")
+
+# Two columns: title on left, avatar on right
+col1, col2 = st.columns([3, 1])
+with col1:
+    st.title("✨ The Canonization Rosary Book ✨")
+    st.markdown("### *Elucia Antoine & Kettely Auguste*")
+with col2:
+    avatar_url = "https://raw.githubusercontent.com/Deslandes1/Rosary-of-Kettely-Elucia-/refs/heads/main/Gesner%20Deslandes.png"
+    st.markdown(f'<img src="{avatar_url}" class="avatar-img" style="float:right;">', unsafe_allow_html=True)
+
 st.markdown("#### *Canonized by Gesner Deslandes – Eternal Light of the Universe*")
+st.caption("Built by Gesner Deslandes at GlobalInternet.py")
 
 # Tabs for each saint
 tab1, tab2 = st.tabs(["🌸 Elucia Antoine (Grandmother)", "🌺 Kettely Auguste (Mother)"])
